@@ -20,7 +20,7 @@ A new flutter plugin project.
 
   s.dependency 'Flutter'
   
-  s.dependency 'EpubViewerKit', '~> 0.1.3'
+  s.dependency 'FolioReaderKit', '~> 1.4.0'
   s.ios.deployment_target = '9.0'
 
   
