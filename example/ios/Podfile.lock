@@ -1,10 +1,10 @@
 PODS:
   - AEXML (4.6.0)
-  - EpubViewerKit (0.1.3):
+  - DudeEpubViewerKit (1.1.1):
     - AEXML (= 4.6.0)
     - FontBlaster (= 5.1.1)
     - MenuItemKit (= 4.0.1)
-    - RealmSwift (= 5.5.1)
+    - RealmSwift
     - SSZipArchive (= 2.2.3)
     - ZFDragableModalTransition (= 0.6)
   - Flutter (1.0.0)
@@ -14,14 +14,14 @@ PODS:
     - Flutter
   - "permission_handler (5.1.0+2)":
     - Flutter
-  - Realm (5.5.1):
-    - Realm/Headers (= 5.5.1)
-  - Realm/Headers (5.5.1)
-  - RealmSwift (5.5.1):
-    - Realm (= 5.5.1)
+  - Realm (10.24.2):
+    - Realm/Headers (= 10.24.2)
+  - Realm/Headers (10.24.2)
+  - RealmSwift (10.24.2):
+    - Realm (= 10.24.2)
   - SSZipArchive (2.2.3)
   - vocsy_epub_viewer (0.0.5):
-    - EpubViewerKit (~> 0.1.3)
+    - DudeEpubViewerKit (~> 1.1.1)
     - Flutter
   - ZFDragableModalTransition (0.6)
 
@@ -34,7 +34,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AEXML
-    - EpubViewerKit
+    - DudeEpubViewerKit
     - FontBlaster
     - MenuItemKit
     - Realm
@@ -54,16 +54,16 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AEXML: 2fbb73d8724797ed2cde888731e176fa4d44dd83
-  EpubViewerKit: 5f6c8ff9161bba18d6742c59b3c575c19f0623a9
+  DudeEpubViewerKit: 3a379412c45b88c158a5801c006e37da80f0a641
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   FontBlaster: 8897ebdbb4b6ace3ab78c92b665d88c954f19e4a
   MenuItemKit: 1459920e984d823e1bcc858b7a964f94e6bfa0f6
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
-  Realm: c2ffe0667f9c98c9ba65f608ba85684d39826145
-  RealmSwift: 5a35c1c35c3e1925e6fcd092c881d5cc4a826bff
+  Realm: c8421eee9ff92b16b4f91a313b5cc695c37c1921
+  RealmSwift: 10ed6fa09c36aaaff55e12afdc71802ec3ddb1c0
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
-  vocsy_epub_viewer: ad1cbdb60cb1b9785bea193418250b82caf15fa8
+  vocsy_epub_viewer: 6f6738c7a6b186066d76b5e65af3bd238fe21719
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
 PODFILE CHECKSUM: a75497545d4391e2d394c3668e20cfb1c2bbd4aa

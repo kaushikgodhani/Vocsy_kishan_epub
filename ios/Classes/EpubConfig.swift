@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import EpubViewerKit
+import DudeEpubViewerKit
 
 class EpubConfig: NSObject {
     
@@ -43,7 +43,7 @@ class EpubConfig: NSObject {
         self.config.displayTitle = true
         self.config.allowSharing = self.allowSharing
         self.config.tintColor = self.tintColor
-        self.config.canChangeFontStyle = false
+      // self.config.canChangeFontStyle = false
         self.config.hideBars = false
         // Custom sharing quote background
         self.config.quoteCustomBackgrounds = []
