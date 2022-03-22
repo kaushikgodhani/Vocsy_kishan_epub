@@ -37,7 +37,7 @@ A new flutter plugin project.
   s.dependency 'ZFDragableModalTransition', '0.6'
   s.dependency 'AEXML', '4.6.0'
   s.dependency 'FontBlaster', '5.1.1'
-  s.dependency 'RealmSwift', '5.5.1'
+  s.dependency 'RealmSwift',  '3.17.3'
 
   s.ios.deployment_target = '9.0'
   

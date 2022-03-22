@@ -197,6 +197,7 @@ extension Highlight {
         do {
             let realm = try Realm(configuration: readerConfig.realmConfiguration)
             highlights = realm.objects(Highlight.self).filter(predicate).toArray(Highlight.self)
+            print("all by book Id: \(highlights ?? [])")
             return (highlights ?? [])
         } catch let error as NSError {
             print("Error on fetch all by book Id: \(error)")
@@ -289,17 +290,15 @@ extension Highlight {
     ///   - page: The page containing the HTML.
     ///   - highlightId: The ID to be removed
     /// - Returns: The removed id
-    public static func removeFromHTMLById(withinPage page: FolioReaderPage?, highlightId: String,completionHandler:@escaping (String?)->Void){
-        guard let currentPage = page else { return }
+    @discardableResult public static func removeFromHTMLById(withinPage page: FolioReaderPage?, highlightId: String) -> String? {
+        guard let currentPage = page else { return nil }
         
-//        if let removedId = currentPage.webView?.js("removeHighlightById('\(highlightId)')") {
-//            return removedId
-//        } else {
-//            print("Error removing Highlight from page")
-//            return nil
-//        }
-        
-        currentPage.webView?.js("removeHighlightById('\(highlightId)')", completionHandler: completionHandler)
+        if let removedId = currentPage.webView?.js("removeHighlightById('\(highlightId)')") {
+            return removedId
+        } else {
+            print("Error removing Highlight from page")
+            return nil
+        }
     }
     
     /**

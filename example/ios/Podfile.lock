@@ -7,18 +7,18 @@ PODS:
     - Flutter
   - "permission_handler (5.1.0+2)":
     - Flutter
-  - Realm (5.5.1):
-    - Realm/Headers (= 5.5.1)
-  - Realm/Headers (5.5.1)
-  - RealmSwift (5.5.1):
-    - Realm (= 5.5.1)
+  - Realm (3.17.3):
+    - Realm/Headers (= 3.17.3)
+  - Realm/Headers (3.17.3)
+  - RealmSwift (3.17.3):
+    - Realm (= 3.17.3)
   - SSZipArchive (2.2.3)
   - vocsy_epub_viewer (0.0.5):
     - AEXML (= 4.6.0)
     - Flutter
     - FontBlaster (= 5.1.1)
     - MenuItemKit (= 4.0.1)
-    - RealmSwift (= 5.5.1)
+    - RealmSwift (= 3.17.3)
     - SSZipArchive (= 2.2.3)
     - ZFDragableModalTransition (= 0.6)
   - ZFDragableModalTransition (0.6)
@@ -56,10 +56,10 @@ SPEC CHECKSUMS:
   MenuItemKit: 1459920e984d823e1bcc858b7a964f94e6bfa0f6
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
-  Realm: c2ffe0667f9c98c9ba65f608ba85684d39826145
-  RealmSwift: 5a35c1c35c3e1925e6fcd092c881d5cc4a826bff
+  Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
+  RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
-  vocsy_epub_viewer: 81a53e6730d0247cd6d87cc76e3c0285af71f7fc
+  vocsy_epub_viewer: 831bb286e6abf2393caf9d2d6aedbe25b1b8fe72
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
 PODFILE CHECKSUM: a75497545d4391e2d394c3668e20cfb1c2bbd4aa

@@ -382,34 +382,22 @@ open class FolioReaderAudioPlayer: NSObject {
         }
 
         let playbackActiveClass = book.playbackActiveClass
-//        guard let sentence = currentPage.webView?.js("getSentenceWithIndex('\(playbackActiveClass)')") else {
-//            if (readerCenter.isLastPage() == true) {
-//                self.stop()
-//            } else {
-//                readerCenter.changePageToNext()
-//            }
-//
-//            return
-//        }
+        guard let sentence = currentPage.webView?.js("getSentenceWithIndex('\(playbackActiveClass)')") else {
+            if (readerCenter.isLastPage() == true) {
+                self.stop()
+            } else {
+                readerCenter.changePageToNext()
+            }
+
+            return
+        }
 
         guard let href = readerCenter.getCurrentChapter()?.href else {
             return
         }
 
-        currentPage.webView?.js("getSentenceWithIndex('\(playbackActiveClass)')", completionHandler: { (result) in
-            
-            if result == nil {
-                if (readerCenter.isLastPage() == true) {
-                    self.stop()
-                } else {
-                    readerCenter.changePageToNext()
-                }
-            }else {
-                self.playText(href, text: result!)
-            }
-        })
         // TODO QUESTION: The previous code made it possible to call `playText` with the parameter `href` being an empty string. Was that valid? should this logic be kept?
-//        self.playText(href, text: sentence)
+        self.playText(href, text: sentence)
     }
 
     func readCurrentSentence() {
@@ -584,5 +572,5 @@ extension FolioReaderAudioPlayer: AVAudioPlayerDelegate {
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
-	return input.rawValue
+    return input.rawValue
 }
