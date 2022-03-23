@@ -57,13 +57,15 @@ open class FolioReaderWebView: UIWebView {
         } else if isColors {
             return false
         } else {
+        /// || (action == #selector(copy(_:)) && readerConfig.allowSharing)
+
             if action == #selector(highlight(_:))
                 || action == #selector(highlightWithNote(_:))
                 || action == #selector(updateHighlightNote(_:))
                 || (action == #selector(define(_:)) && isOneWord)
                 || (action == #selector(play(_:)) && (book.hasAudio || readerConfig.enableTTS))
                 || (action == #selector(share(_:)) && readerConfig.allowSharing)
-                || (action == #selector(copy(_:)) && readerConfig.allowSharing) {
+                {
                 return true
             }
             return false
@@ -309,7 +311,7 @@ open class FolioReaderWebView: UIWebView {
             menuItems = [colorsItem, editNoteItem, removeItem]
             
             if (self.readerConfig.allowSharing == true) {
-                menuItems.append(shareItem)
+              ///  menuItems.append(shareItem)
             }
             
             isShare = false
@@ -325,10 +327,12 @@ open class FolioReaderWebView: UIWebView {
             }
 
             if (self.readerConfig.allowSharing == true) {
-                menuItems.append(shareItem)
+              ///  menuItems.append(shareItem)
             }
         }
-        
+
+        print("menuItems \(menuItems[0].title)")
+      ///  menuItems.removeFirst()
         menuController.menuItems = menuItems
     }
     

@@ -13,7 +13,8 @@ A new flutter plugin project.
   s.author           = { 'dudecoder' => 'kaushik64494@gmail.com' }
   s.source           = { :path => '.' }
   
-
+ s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.swift_version = '4.2'
   s.requires_arc  = true
 

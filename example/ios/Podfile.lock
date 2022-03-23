@@ -59,7 +59,7 @@ SPEC CHECKSUMS:
   Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
   RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
-  vocsy_epub_viewer: 831bb286e6abf2393caf9d2d6aedbe25b1b8fe72
+  vocsy_epub_viewer: 982971af8a70398880a7ab16f47c2a58b06d67c8
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
 PODFILE CHECKSUM: a75497545d4391e2d394c3668e20cfb1c2bbd4aa
