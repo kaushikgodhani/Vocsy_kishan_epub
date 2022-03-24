@@ -276,7 +276,7 @@ open class FolioReaderCenter: UIViewController, UICollectionViewDelegate, UIColl
         var rightBarIcons = [UIBarButtonItem]()
 
         if (self.readerConfig.allowSharing == true) {
-            rightBarIcons.append(UIBarButtonItem(image: shareIcon, style: .plain, target: self, action:#selector(shareChapter(_:))))
+          //  rightBarIcons.append(UIBarButtonItem(image: shareIcon, style: .plain, target: self, action:#selector(shareChapter(_:))))
         }
 
         if self.book.hasAudio || self.readerConfig.enableTTS {
