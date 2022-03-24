@@ -40,6 +40,6 @@ s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.dependency 'FontBlaster', '5.1.1'
   s.dependency 'RealmSwift',  '3.17.3'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   
 end
