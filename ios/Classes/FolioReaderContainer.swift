@@ -162,6 +162,7 @@ open class FolioReaderContainer: UIViewController {
                 self.book = parsedBook
                 self.folioReader.isReaderOpen = true
 
+                print("lodulodulodu \(self.book.resources.containsById("4"))")
                 // Reload data
                 DispatchQueue.main.async {
                     // Add audio player if needed

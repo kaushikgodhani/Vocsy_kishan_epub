@@ -175,7 +175,9 @@ class FREpubParser: NSObject, SSZipArchiveDelegate {
             if (resource.mediaType != nil && resource.mediaType == .smil) {
                 readSmilFile(resource)
             }
-
+            print("resourceOfBookhref \(String(describing: resource.href))")
+            print("resourceOfBookfullHref \(String(describing: resource.fullHref))")
+            print("resourceOfBookmediaType \(String(describing: resource.mediaType))")
             book.resources.add(resource)
         }
 

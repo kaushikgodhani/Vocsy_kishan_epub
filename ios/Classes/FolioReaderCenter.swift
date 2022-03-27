@@ -465,35 +465,44 @@ open class FolioReaderCenter: UIViewController, UICollectionViewDelegate, UIColl
         guard var html = try? String(contentsOfFile: resource.fullHref, encoding: String.Encoding.utf8) else {
             return cell
         }
-        
+        let mediaOverlayStyleColors = "\"\(self.readerConfig.mediaOverlayColor.hexString(false))\", \"\(self.readerConfig.mediaOverlayColor.highlightColor().hexString(false))\""
+
         // Inject viewport
         let viewportTag = "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">"
 
-        let toInject = "\n\(viewportTag)\n</head>"
+                let webHeight = UIScreen.main.bounds.height
+                // Inject CSS
+                let jsFilePath = Bundle.frameworkBundle().path(forResource: "Bridge", ofType: "js")
+                let cssFilePath = Bundle.frameworkBundle().path(forResource: "Style", ofType: "css")
+                let cssTag = "<link rel=\"stylesheet\" type=\"text/css\" href=\"\(cssFilePath!)\">"
+                let jsTag = "<script type=\"text/javascript\" src=\"\(jsFilePath!)\"></script>" +
+                "<script type=\"text/javascript\">setMediaOverlayStyleColors(\(mediaOverlayStyleColors))</script>"
+                let metaTag = "<meta name='viewport' content='width=device-width,height=\(webHeight),initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>"
+                
+                let toInject = "\n\(metaTag)\n\(cssTag)\n\(jsTag)\n\(viewportTag)\n</head>"
+                html = html.replacingOccurrences(of: "</head>", with: toInject)
+                        
+                // Font class name
+                var classes = folioReader.currentFont.cssIdentifier
+                classes += " " + folioReader.currentMediaOverlayStyle.className()
 
-        html = html.replacingOccurrences(of: "</head>", with: toInject)
+                // Night mode
+                if folioReader.nightMode {
+                    classes += " nightMode"
+                }
 
-        // Font class name
-        var classes = folioReader.currentFont.cssIdentifier
-        classes += " " + folioReader.currentMediaOverlayStyle.className()
+                // Font Size
+                classes += " \(folioReader.currentFontSize.cssIdentifier)"
 
-        // Night mode
-        if folioReader.nightMode {
-            classes += " nightMode"
-        }
+                html = html.replacingOccurrences(of: "<html ", with: "<html class=\"\(classes)\"")
 
-        // Font Size
-        classes += " \(folioReader.currentFontSize.cssIdentifier)"
-
-        html = html.replacingOccurrences(of: "<html ", with: "<html class=\"\(classes)\"")
-
-        // Let the delegate adjust the html string
-        if let modifiedHtmlContent = self.delegate?.htmlContentForPage?(cell, htmlContent: html) {
-            html = modifiedHtmlContent
-        }
-
-        cell.loadHTMLString(html, baseURL: URL(fileURLWithPath: resource.fullHref.deletingLastPathComponent))
-        return cell
+                // Let the delegate adjust the html string
+                if let modifiedHtmlContent = self.delegate?.htmlContentForPage?(cell, htmlContent: html) {
+                    html = modifiedHtmlContent
+                }
+                
+                cell.loadHTMLString(title: resource.fullHref.lastPathComponent, htmlContent:html, baseURL: URL(fileURLWithPath: resource.fullHref.deletingLastPathComponent))
+                return cell
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -1416,6 +1425,7 @@ extension FolioReaderCenter: FolioReaderPageDelegate {
             let offset = self.readerConfig.isDirection(position["pageOffsetY"], position["pageOffsetX"], position["pageOffsetY"]) as? CGFloat
             let pageOffset = offset
 
+            print("pageNumberK \(String(describing: pageNumber))")
             if isFirstLoad {
                 updateCurrentPage(page)
                 isFirstLoad = false

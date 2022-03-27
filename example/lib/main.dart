@@ -123,8 +123,7 @@ class _MyAppState extends State<MyApp> {
     if (!File(path).existsSync()) {
       await file.create();
       await dio.download(
-        'https://github.com/FolioReader/FolioReaderKit/raw/master/Example/'
-        'Shared/Sample%20eBooks/The%20Silver%20Chair.epub',
+        'https://lenap.libroes.app//uploads/60855_jetset-capitulo-uno-(2).epub',
         path,
         deleteOnError: true,
         onReceiveProgress: (receivedBytes, totalBytes) {
